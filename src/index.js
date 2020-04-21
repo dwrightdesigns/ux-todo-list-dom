@@ -1,32 +1,39 @@
-
 let todos = [
-    {
-        completed: false,
-        description: "Take Jim to the hair salon"
-    },
-    {
-        completed: true,
-        description: "Drop off wedding invitation at mailbox"
-    },
-    {
-        completed: false,
-        description: "Pick up the cake"
-    },
-    {
-        completed: false,
-        description: "Call the caterers"
-    }
+  {
+    completed: false,
+    description: "Take Jim to the hair salon",
+  },
+  {
+    completed: true,
+    description: "Drop off wedding invitation at mailbox",
+  },
+  {
+    completed: false,
+    description: "Pick up the cake",
+  },
+  {
+    completed: false,
+    description: "Call the caterers",
+  },
 ];
 
 function renderTodoApp() {
-    let app = document.querySelector("#app")
-    let h1 = document.createElement("h1")
-    // your code here
+  let app = document.querySelector("#app");
+  let items = "";
+  todos.forEach(function (todo) {
+    items += `<li class="items"><input class="check" ${
+      todo.completed ? "checked='checked'" : ""
+    } type="checkbox">${todo.description}</li>`;
+  });
 
-    h1.innerText = "Todo List"
+  app.innerHTML = `<h1> Todo List </h2>
+<ul class="list">${items}</ul>`;
 
-    app.appendChild(h1)
-    // and maybe some here
+//   for (i = 0; i < todos.length; i++) {
+//     if (todos[i].completed == true) {
+//       document.getElementById("check" + (i + 1)).checked = true;
+//     }
+//   }
 }
 
-renderTodoApp()
+renderTodoApp();
